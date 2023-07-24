@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+
+	{% block content %}
+
+	{% endblock %}
+
+
+
+</body>
+</html>
+
+<!-- 
+
+1. The Django Template Language:
+The Django template language is a simple and powerful templating system provided by Django to generate dynamic HTML, XML, or other types of output. It allows you to embed Python-like expressions, variables, and control structures within templates. Templates help separate the presentation logic from the application logic, enabling designers and developers to work independently.
+
+2. Variables:
+Variables in Django templates are placeholders that represent dynamic data passed from the view to the template. To access a variable, you use double curly braces `{{ variable_name }}`. When the template is rendered, the variable will be replaced with its actual value from the context provided by the view.
+
+3. Filters:
+Filters in Django templates allow you to modify or format variables before displaying them. Filters are applied using the pipe symbol `|`. For example, you can use the `date` filter to format a date variable or the `length` filter to get the length of a string.
+
+4. Tags:
+Tags in Django templates provide control structures and logic for rendering dynamic content. Tags are enclosed in curly braces and percentage signs `{% %}`. They allow you to perform loops, conditionals, include other templates, handle forms, and more. Common tags include `{% for %}`, `{% if %}`, and `{% include %}`.
+
+5. Template Inheritance:
+Template inheritance is a feature in Django templates that allows you to create a base template containing the common structure and elements shared across multiple pages. Child templates can inherit from the base template using the `{% extends %}` tag and override specific blocks of content defined in the base template using `{% block %}` tags.
+
+6. Include vs Extend:
+- `Include`: The `{% include %}` tag allows you to include the content of another template within the current template. It's useful for reusing common components or snippets of code across different templates without needing to duplicate the content.
+
+- `Extend`: The `{% extends %}` tag is used to create template inheritance. It allows a child template to inherit the structure and content from a parent template. The child template can override specific blocks of content defined in the parent template using `{% block %}` tags, while the rest of the content remains unchanged.
+
+Both `include` and `extend` are essential for creating modular and maintainable templates in Django, as they help in reusing and organizing template code effectively.
+
+-->
