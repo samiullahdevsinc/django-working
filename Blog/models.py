@@ -2,24 +2,26 @@ from django.db import models
 import uuid
 # Create your models here.
 class User(models.Model):
-	fullName = models.CharField(max_length=300)
+	fullName = models.CharField(max_length=300, null=True)
 	email = models.EmailField()
 	PhoneNumber = models.CharField(max_length=200)
 	password = models.CharField(max_length=30)
+
+	class Meta:
+		verbose_name="stu"
 
 	def __str__(self):
 		return self.email
 
 class Admin(models.Model):
-	User= models.ForeignKey(User, default=None,null=True,on_delete=models.CASCADE)
+	User= models.OneToOneField(User, default=None,null=True,on_delete=models.CASCADE)
 	genderChoice = [('M',"Male"),('F',"Female")]
 	gender = models.CharField(max_length=6,choices = genderChoice)
 
-	def __str__(self):
-		return self.User
+	
 
 class Post(models.Model):
-	title = models.CharField(max_length=50)
+	title = models.CharField(max_length=50,verbose_name="Title Mine")
 	detail = models.TextField()
 	User= models.ForeignKey(User,default=None, null=True, on_delete=models.CASCADE)
 	likes = models.IntegerField()
@@ -27,6 +29,7 @@ class Post(models.Model):
 	def __str__(self):
 		return self.title
 
+# Post.objects.filter(Q(title="Sami") | Q(title="Toheed"))
 
 class Comment(models.Model):
 	user = models.ForeignKey(User, default=None,null=True,on_delete=models.CASCADE)

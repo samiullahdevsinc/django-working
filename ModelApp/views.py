@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import username, userProfile
 from django.views.generic import ListView
+from django.http import HttpResponse
 # Create your views here.
 
 
@@ -25,6 +26,12 @@ class courses(ListView):
 	# fields = ['username']
 	context_object_name = 'courses'
 	# success_url = '/list/'
+
+
+def checkId(request,id):
+	return HttpResponse(f"The id is {id}")
+
+
 
 
 

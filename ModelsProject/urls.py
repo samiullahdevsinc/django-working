@@ -18,6 +18,9 @@ from django.urls import path, re_path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    re_path(r'^custom/(?P)/$',SampleView, name="Sample View")
+    path('',include('Blog.urls'))
+    # re_path(r'^custom/(?P)/$',SampleView, name="Sample View")
     # path('',include('ModelApp.urls'))
 ]
+
+

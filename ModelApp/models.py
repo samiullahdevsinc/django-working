@@ -100,6 +100,7 @@ class PhoneNumber(models.Model):
 Example to create an Object with one to one fields
 
 user1 = username(username="Sami Ullah Saleem")
+
 user1.save()
 userprofile = userProfile(user=user1,bio="I am IT Expert")
 userprofile.save()
@@ -160,6 +161,11 @@ class Migration(migrations.Migration):
 
 
 
+* The annotate method in Django's ORM is used to add extra information or computed values to the queryset. It allows you to perform calculations or aggregations on related fields and include the results in the retrieved data without altering the original data in the database.
+The benefit of using annotate is that it provides a way to obtain aggregated or computed information efficiently and conveniently, reducing the need for additional queries or manual computations.
+
+* Overall, annotate is a powerful tool in Django's ORM that allows you to retrieve and present data in a more meaningful and efficient way, simplifying complex calculations and aggregations on related fields.
+It promotes cleaner, more maintainable code and helps optimize database queries.
 
 
 '''
