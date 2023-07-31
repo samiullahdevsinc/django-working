@@ -7,7 +7,27 @@ from django.contrib.auth import login, logout, authenticate
 from django.views.generic import ListView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
 # Create your views here.
+
+
+def contact(request):
+	if request.method == "GET":
+		return render(request,"contact.html")
+	try:
+		subject = request.POST["subject"]
+		message = request.POST["message"]
+		send_mail(
+	    subject,
+	    message,
+	    'samiullah1701734@gmail.com',
+	    ['samiullah1701734@gmail.com'],
+	    fail_silently=False,
+	)
+		return HttpResponse("Email has been sent")
+	except Exception as e:
+		return HttpResponse(e)
+
 
 @login_required(login_url="/loginuser", redirect_field_name="next")
 def postCreate(request):
