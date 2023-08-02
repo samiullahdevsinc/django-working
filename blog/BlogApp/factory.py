@@ -11,7 +11,7 @@ class PostFactory(factory.django.DjangoModelFactory):
 	class Meta:
 		model = Post
 
-	title = factory.Faker("sentence",nb_words=12)
+	title = factory.Faker("sentence",nb_words=1000)
 	details = Fake.paragraph(nb_sentences=40)
 	title1 = factory.Faker("sentence",nb_words=20)
 	# slug = fackory.Faker("slug")

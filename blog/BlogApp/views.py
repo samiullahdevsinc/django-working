@@ -8,6 +8,7 @@ from django.views.generic import ListView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.models import User
 from django.core.mail import send_mail
+from django.contrib import messages
 # Create your views here.
 
 
@@ -21,7 +22,7 @@ def contact(request):
 	    subject,
 	    message,
 	    'samiullah1701734@gmail.com',
-	    ['samiullah1701734@gmail.com'],
+	    ['azfar.intern@devsinc.com','samiullah1701734@gmail.com','obadah.intern@devsinc.com'],
 	    fail_silently=False,
 	)
 		return HttpResponse("Email has been sent")
@@ -35,9 +36,12 @@ def postCreate(request):
 		form = PostForm(request.POST)
 		if form.is_valid():
 			form.save()
+			messages.success(request,"Post Successful created")
+			form = PostForm()
 		else:
-			return HttpResponse("Not Valid")
-	form = PostForm()
+			messages.info(request,"Form Invalid")
+	else:
+		form = PostForm()
 	return render(request,"postcreate.html",{"form":form})
 
 def loginUser(request):
