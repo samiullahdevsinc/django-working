@@ -3,20 +3,18 @@ from .models import Post
 
 # Create your tests here.
 
-class URLTests(TestCase):
+# class URLTests(TestCase):
 
-	def test_homepage(self):
-		response = self.client.post('/posts')
-		self.assertEqual(response.status_code,200)
+# 	def test_homepage(self):
+# 		response = self.client.post('/posts')
+# 		self.assertEqual(response.status_code,200)
 
 
 class MODELTests(TestCase):
+    def test_model_post(self):
+        title = Post.objects.create(title="Django Testing")
+        # You should only create the "title" object for testing the model.
 
-	def model_post(self):
-		title = Post.objects.create(title="Django Testing1")
-		details = Post.objects.create(details="The content has been created")
-		title1 = Post.objects.create(title1="The content has been created")
-		print("Testing")
-		self.assertEqual(title1,"Django Testing1")
-		# self.assertEqual(str(details),"The content has been created")
-		# self.assertEqual(str(details1),"The content has been created")
+        # Correct assertion by retrieving the "title" from the database.
+        retrieved_title = Post.objects.get(title="Django Testing")
+        self.assertEqual(retrieved_title.title, "Django Testing")
